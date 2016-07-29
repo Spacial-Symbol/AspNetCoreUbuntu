@@ -6,12 +6,17 @@ namespace AspNetCoreUbuntu
     {
        public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                        .UseKestrel()
-                        .UseStartup<Startup>()
+            var host = HostBuilder()
                         .Build();
 
-             host.Run();
+            host.Run();
+        }
+
+        private static IWebHostBuilder HostBuilder()
+        {
+            return new WebHostBuilder()
+                                    .UseKestrel()
+                                    .UseStartup<Startup>();
         }
     }
 }
